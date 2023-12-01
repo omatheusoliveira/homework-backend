@@ -47,6 +47,7 @@ class SaleService
 
             foreach($sales as $sale){
                 if($sale->user_id == $idSeller){
+                    $sale->user = User::find($sale->user_id);
                     array_push($filtredSales, $sale);
                 }
             }
