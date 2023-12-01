@@ -125,7 +125,8 @@ Referente as vendas:
 ```
  HTTP         URL                         TO DO
 [POST]  /api/sale/create          /* Cria uma venda */
-[GET]   /api/sale/list/{id}       /* Busca apenas a venda de um vendedor, usando o ID do vendedor como parâmetro */
+[GET]   /api/sale/list/{id}       /* Busca apenas a venda de um vendedor, usando o ID do vendedor
+                                     como parâmetro */
 
 ```
 
@@ -133,6 +134,7 @@ Referente ao relatório:
 
 ```
  HTTP         URL                         TO DO
-[POST]  /api/send-email           /* Envia relatório por email pré-setado no projeto(citados nos passos 3, 4 e 5) */
+[POST]  /api/send-email           /* Envia relatório por email pré-setado no projeto(citados nos
+                                     passos 3, 4 e 5) */
 
 ```
