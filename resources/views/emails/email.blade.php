@@ -25,6 +25,8 @@
 
     <p>Olá,</p>
     <p>Segue abaixo, relatório de vendas.</p>
+    <p>Número total de vendas: {{ $countSales }}</p>
+    <p>Somatória sobre o valor das vendas: R$ {{ $sumAllSales }}</p>
 
     <table>
         <thead>

@@ -42,13 +42,22 @@ class SendReport extends Command
                 
         $today = new DateTime();
 
+        $sumAllSales = 0;
+        $countSales = count($sales);
+
+        foreach($sales as $sale){
+            $sumAllSales += $sale['sale_value'];
+        }
+
         $today = $today->format('d/m/Y');
 
         $to = 'matheus2001513@gmail.com';
-        $subject = 'Assunto do E-mail';
+        $subject = 'Relatório de vendas do dia ' . $today;
         $data = array(
             'messages' => $sales,
-            'today' => $today
+            'today' => $today,
+            'sumAllSales' => $sumAllSales,
+            'countSales' => $countSales
         );
 
         Mail::send('emails.email', $data, function ($messages) use ($to, $subject) {

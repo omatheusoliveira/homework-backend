@@ -1,0 +1,466 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Homework",
+        "description": "Homework API",
+        "contact": {
+            "email": "matheus-araujo2001@hotmail.com"
+        },
+        "version": "1.0"
+    },
+    "paths": {
+        "/api/sale/create": {
+            "post": {
+                "tags": [
+                    "Sales"
+                ],
+                "summary": "Cria uma nova venda",
+                "description": "Cria uma nova venda com base nos dados fornecidos no corpo da solicitação",
+                "operationId": "createSale",
+                "requestBody": {
+                    "description": "Dados da nova venda",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "user_id": {
+                                        "type": "number",
+                                        "example": 2
+                                    },
+                                    "sale_value": {
+                                        "type": "number",
+                                        "example": 1000
+                                    },
+                                    "sale_date": {
+                                        "type": "string",
+                                        "example": "2023-12-03"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Venda criada com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Venda criada com sucesso"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Erro de validação",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Erro de validação"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/sale/list/{id}": {
+            "get": {
+                "tags": [
+                    "Sales"
+                ],
+                "summary": "Lista vendas filtradas por vendedor",
+                "description": "Retorna uma lista de vendas filtradas por vendedor com base no ID fornecido",
+                "operationId": "listSale",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID do vendedor para filtrar as vendas",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Lista de vendas filtradas por vendedor",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "number",
+                                                "example": 6
+                                            },
+                                            "user_id": {
+                                                "type": "number",
+                                                "example": 4
+                                            },
+                                            "commission": {
+                                                "type": "string",
+                                                "example": "255.00"
+                                            },
+                                            "sale_value": {
+                                                "type": "string",
+                                                "example": "3000.00"
+                                            },
+                                            "sale_date": {
+                                                "type": "string",
+                                                "example": "2023-12-03"
+                                            },
+                                            "created_at": {
+                                                "type": "string",
+                                                "example": "2023-11-30T01:44:55.000000Z"
+                                            },
+                                            "updated_at": {
+                                                "type": "string",
+                                                "example": "2023-11-30T01:44:55.000000Z"
+                                            },
+                                            "user": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "number",
+                                                        "example": 4
+                                                    },
+                                                    "name": {
+                                                        "type": "string",
+                                                        "example": "1231a23"
+                                                    },
+                                                    "email": {
+                                                        "type": "string",
+                                                        "example": "matheau2s@teste.com"
+                                                    },
+                                                    "created_at": {
+                                                        "type": "string",
+                                                        "example": "2023-11-30T01:44:41.000000Z"
+                                                    },
+                                                    "updated_at": {
+                                                        "type": "string",
+                                                        "example": "2023-11-30T01:44:41.000000Z"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Vendedor não encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Vendedor não encontrado"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/users/create": {
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Cria um novo usuário",
+                "description": "Cria um novo usuário com o nome e e-mail fornecidos",
+                "operationId": "createUser",
+                "requestBody": {
+                    "description": "Dados do novo usuário",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Nome do Novo Usuário"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email",
+                                        "example": "novo@email.com"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Usuário criado com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Usuário criado com sucesso"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Erro de validação",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Erro de validação"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/users/list": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Lista todos os vendedores",
+                "description": "Retorna uma lista de todos os vendedores cadastrados",
+                "operationId": "listUser",
+                "responses": {
+                    "200": {
+                        "description": "Lista de vendedores",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "number",
+                                                "example": 1
+                                            },
+                                            "name": {
+                                                "type": "string",
+                                                "example": "example name"
+                                            },
+                                            "email": {
+                                                "type": "string",
+                                                "example": "example@email.com"
+                                            },
+                                            "updated_at": {
+                                                "type": "string",
+                                                "example": "2021-12-11T09:25:53.000000Z"
+                                            },
+                                            "created_at": {
+                                                "type": "string",
+                                                "example": "2021-12-11T09:25:53.000000Z"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Nenhum vendedor encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Nenhum vendedor encontrado"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/users/update/{id}": {
+            "put": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Atualiza um vendedor",
+                "description": "Atualiza informações de um vendedor pelo ID",
+                "operationId": "updateUser",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID do vendedor a ser atualizado",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Dados a serem atualizados",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Novo Nome"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email",
+                                        "example": "novo@email.com"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Vendedor atualizado com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Vendedor atualizado com sucesso"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Vendedor não encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Vendedor não encontrado"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Erro de validação",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Erro de validação"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/users/delete/{id}": {
+            "delete": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Exclui um vendedor",
+                "description": "Exclui um vendedor com base no ID fornecido",
+                "operationId": "deleteUser",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID do vendedor a ser excluído",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Vendedor excluído com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Vendedor excluído com sucesso"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Vendedor não encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Vendedor não encontrado"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
