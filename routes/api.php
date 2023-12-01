@@ -25,4 +25,4 @@ Route::post('/sale/create', 'App\Http\Controllers\SaleController@create');
 Route::get('/sale/list/{id}', 'App\Http\Controllers\SaleController@list');
 
 
-Route::get('/send-email', 'App\Http\Controllers\EmailController@SendEmail');
+Route::post('/send-email', 'App\Http\Controllers\EmailController@SendEmail');

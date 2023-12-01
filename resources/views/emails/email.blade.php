@@ -6,23 +6,19 @@
 
     <style>
         table {
-            width: 80%; /* Ajuste a largura conforme necessário */
+            width: 80%;
             border-collapse: collapse;
-            margin: 20px; /* Adicione margens conforme necessário */
+            margin: 20px;
         }
-
         th, td {
             border: 1px solid #ddd;
             padding: 8px;
             text-align: left;
         }
-
         th {
             background-color: #f2f2f2;
         }
     </style>
-
-
 </head>
 <body>
     <h1>Relatório de vendas do dia {{ $today }}</h1>
