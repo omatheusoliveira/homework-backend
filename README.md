@@ -150,8 +150,13 @@ Referente ao relatório:
                                      passos 3, 4 e 5) */
 ```
 
-Diagrama EER
+**Diagrama ER**
 
-```
-![enter image description here](https://i.imgur.com/ZgHVtAr.jpg)
-```
+![Diagrama ER](https://media.discordapp.net/attachments/899352560379494450/1180288238292836352/689021cc-30fe-49ac-aac7-39b37dcdf85b.jpg?ex=657ce014&is=656a6b14&hm=2dd899b962a424ad9c1f6bbc76b2dccda18261f11299a2b6373da71fd58f9fb6&=&format=webp)
+
+
+**Documentação no Swagger**
+
+![Doc Swagger](https://media.discordapp.net/attachments/899352560379494450/1180288238640975962/swagger.jpg?ex=657ce014&is=656a6b14&hm=4ad979b6a4bb65403e32834a6aa81c055ba843b083bdc8678acebb99f23ca78b&=&format=webp&width=1011&height=566)
+
+
