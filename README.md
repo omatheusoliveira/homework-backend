@@ -77,7 +77,7 @@ Ex:
 
 **Passo 4:**
 
-No arquivo EmailController.php(app\Http\Controllers\EmailController.php), alterar linha 29 para o respectivo destinatário
+No arquivo SendReport.php(app\Console\Commands\SendReport.php), alterar linha 47 para o respectivo destinatário
 
 ```
 Ex:
@@ -107,6 +107,20 @@ Para rodar o projeto, execute o seguinte comando:
 php artisan serve
 ```
 
+**CRON envio de email**
+
+Para rodar a CRON de enviar o relatório, altere para a linha 15 do arquivo Kernel.php(app\Console\Kernel.php) para a hora desejada.
+
+```
+Ex:
+$schedule->command('app:send-report')->dailyAt('18:00'); 
+```
+
+Em seguida, basta rodar o comando:
+```
+php artisan schedule:run
+```
+
 ## Rotas:
 
 Referente ao vendedor:
@@ -117,7 +131,6 @@ Referente ao vendedor:
 [GET]    /api/users/list          /* Busca todos os vendedores */
 [DELETE] /api/user/delete/{id}    /* Deleta vendedor usando ID do mesmo como parâmetro na request */
 [PUT]    /api/users/update/{id}   /* Edita vendedor usando ID do mesmo como parâmetro na request */
-
 ```
 
 Referente as vendas:
@@ -127,7 +140,6 @@ Referente as vendas:
 [POST]  /api/sale/create          /* Cria uma venda */
 [GET]   /api/sale/list/{id}       /* Busca apenas a venda de um vendedor, usando o ID do vendedor
                                      como parâmetro */
-
 ```
 
 Referente ao relatório:
@@ -136,5 +148,10 @@ Referente ao relatório:
  HTTP         URL                         TO DO
 [POST]  /api/send-email           /* Envia relatório por email pré-setado no projeto(citados nos
                                      passos 3, 4 e 5) */
+```
 
+Diagrama EER
+
+```
+![enter image description here](https://i.imgur.com/ZgHVtAr.jpg)
 ```
