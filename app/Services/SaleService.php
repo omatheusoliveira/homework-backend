@@ -41,18 +41,9 @@ class SaleService
 
             $idSeller = $request->id;
 
-            $sales = Sale::get();
-
-            $filtredSales = [];
-
-            foreach($sales as $sale){
-                if($sale->user_id == $idSeller){
-                    $sale->user = User::find($sale->user_id);
-                    array_push($filtredSales, $sale);
-                }
-            }
-
-            return response()->json($filtredSales, Response::HTTP_OK);
+            $sales = Sale::with('user')->where('user_id', $idSeller)->get();
+            
+            return response()->json($sales, Response::HTTP_OK);
 
         } catch (Exception $ex) {
             return response()->json($ex, Response::HTTP_INTERNAL_SERVER_ERROR);
