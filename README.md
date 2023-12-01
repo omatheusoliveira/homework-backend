@@ -3,11 +3,12 @@
 ## Descrição:
 
 ```
-API foi construída com PHP, utilizando Framework Laravel 10. Para o banco de dados, foi utilizado MySQL Workbench
+API foi construída com PHP, utilizando Framework Laravel 10. Para o banco de dados,
+foi utilizado MySQL Workbench
 
-Em resumo, ela foi feita para o controle de vendas, onde é possível cadastrar vendedor(CRUD), cadastrar venda e consultar
-venda. Está setado o valor de 8.5% de comissão para o vendedor sobre o valor da venda. Há uma CRON para
-todos os dias, as 5pm, enviar um relatório de vendas referente ao dia corrente via email.
+Em resumo, ela foi feita para o controle de vendas, onde é possível cadastrar vendedor(CRUD), cadastrar
+venda e consultar venda. Está setado o valor de 8.5% de comissão para o vendedor sobre o valor da venda.
+Há uma CRON para todos os dias, as 5pm, enviar um relatório de vendas referente ao dia corrente via email.
 ```
 
 ## Tecnologias usadas:
