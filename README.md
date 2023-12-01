@@ -4,7 +4,7 @@
 
 ```
 API foi construída com PHP, utilizando Framework Laravel 10. Para o banco de dados, foi utilizado
-a ferramenta MySQL Workbench
+a ferramenta MySQL Workbench. Para o envio de email, foi utilizado o Mailtrap.
 
 Em resumo, ela foi feita para o controle de vendas, onde é possível cadastrar vendedor(CRUD), cadastrar
 venda e consultar venda. Está setado o valor de 8.5% de comissão para o vendedor sobre o valor da venda.
@@ -20,7 +20,7 @@ PHP | Laravel | SQL
 ## Itens obrigatórios:
 
 ```
-PHP: ^8 | Laravel: 10| Composer: 2.6 | MySQL Workbench
+PHP: ^8 | Laravel: 10| Composer: 2.6 | MySQL Workbench | Mailtrap Account
 ```
 
 ## Funções - Vendedor:
@@ -60,6 +60,44 @@ php artisan migrate
 
 **Passo 3:**
 
+No arquivo mail.php(config\mail.php), alterar linhas 102-105 para o respectivo remente
+
+```
+Ex:
+
+'from' => [
+        'address' => env('MAIL_FROM_ADDRESS', 'remetente@email.com'),
+        'name' => env('MAIL_FROM_NAME', 'Nome Remetente'),
+    ],
+
+```
+
+**Passo 4:**
+
+No arquivo EmailController.php(app\Http\Controllers\EmailController.php), alterar linha 29 para o respectivo destinatário
+
+```
+Ex:
+
+$to = 'destinatario@email.com';
+```
+
+**Passo 5:**
+
+No arquivo .env(raiz do projeto), alterar linhas 31-35 com as informações da plataforma do Mailtrap
+
+```
+Ex:
+
+MAIL_MAILER=smtp
+MAIL_HOST=host
+MAIL_PORT=port
+MAIL_USERNAME=username
+MAIL_PASSWORD=password
+```
+
+**Passo 6:**
+
 Para rodar o projeto, execute o seguinte comando:
 
 ```
@@ -85,5 +123,13 @@ Referente as vendas:
  HTTP         URL                         TO DO
 [POST]  /api/sale/create          /* Cria uma venda */
 [GET]   /api/sale/list/{id}       /* Busca apenas a venda de um vendedor, usando o ID do vendedor como parâmetro */
+
+```
+
+Referente ao relatório:
+
+```
+ HTTP         URL                         TO DO
+[POST]  /api/send-email           /* Envia relatório por email pré-setado no projeto(citados nos passos 3, 4 e 5) */
 
 ```
