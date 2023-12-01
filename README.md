@@ -35,6 +35,9 @@ PHP: ^8 | Laravel: 10| Composer: 2.6 | MySQL Workbench | Mailtrap Account
 -   Cadastro de Venda
 -   Listar Venda por Vendedor
 
+## Funções - Relatório:
+-   Enviar relatório via email
+
 ## Inicializando o projeto
 
 **Passo 1:**
