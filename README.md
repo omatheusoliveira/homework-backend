@@ -107,6 +107,12 @@ Para rodar o projeto, execute o seguinte comando:
 php artisan serve
 ```
 
+**URL do projeto com Swagger**
+
+```
+http://127.0.0.1:8000/api/documentation
+```
+
 **CRON envio de email**
 
 Para rodar a CRON de enviar o relatório, altere para a linha 15 do arquivo Kernel.php(app\Console\Kernel.php) para a hora desejada.
