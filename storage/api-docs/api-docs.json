@@ -190,11 +190,11 @@
                 "tags": [
                     "Users"
                 ],
-                "summary": "Cria um novo usuário",
-                "description": "Cria um novo usuário com o nome e e-mail fornecidos",
+                "summary": "Cria um novo vendedor",
+                "description": "Cria um novo vendedor com o nome e e-mail fornecidos",
                 "operationId": "createUser",
                 "requestBody": {
-                    "description": "Dados do novo usuário",
+                    "description": "Dados do novo vendedor",
                     "required": true,
                     "content": {
                         "application/json": {
@@ -202,7 +202,7 @@
                                 "properties": {
                                     "name": {
                                         "type": "string",
-                                        "example": "Nome do Novo Usuário"
+                                        "example": "Nome do Novo vendedor"
                                     },
                                     "email": {
                                         "type": "string",
@@ -216,15 +216,15 @@
                     }
                 },
                 "responses": {
-                    "201": {
-                        "description": "Usuário criado com sucesso",
+                    "200": {
+                        "description": "Vendedor criado com sucesso",
                         "content": {
                             "application/json": {
                                 "schema": {
                                     "properties": {
                                         "message": {
                                             "type": "string",
-                                            "example": "Usuário criado com sucesso"
+                                            "example": "Vendedor criado com sucesso"
                                         }
                                     },
                                     "type": "object"
@@ -232,7 +232,7 @@
                             }
                         }
                     },
-                    "422": {
+                    "400": {
                         "description": "Erro de validação",
                         "content": {
                             "application/json": {
@@ -407,7 +407,7 @@
                 }
             }
         },
-        "/api/users/delete/{id}": {
+        "/api/user/delete/{id}": {
             "delete": {
                 "tags": [
                     "Users"

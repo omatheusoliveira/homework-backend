@@ -21,25 +21,25 @@ class UserController extends Controller
      *      path="/api/users/create",
      *      operationId="createUser",
      *      tags={"Users"},
-     *      summary="Cria um novo usuário",
-     *      description="Cria um novo usuário com o nome e e-mail fornecidos",
+     *      summary="Cria um novo vendedor",
+     *      description="Cria um novo vendedor com o nome e e-mail fornecidos",
      *      @OA\RequestBody(
      *          required=true,
-     *          description="Dados do novo usuário",
+     *          description="Dados do novo vendedor",
      *          @OA\JsonContent(
-     *              @OA\Property(property="name", type="string", example="Nome do Novo Usuário"),
+     *              @OA\Property(property="name", type="string", example="Nome do Novo vendedor"),
      *              @OA\Property(property="email", type="string", format="email", example="novo@email.com")
      *          )
      *      ),
      *      @OA\Response(
-     *          response=201,
-     *          description="Usuário criado com sucesso",
+     *          response=200,
+     *          description="Vendedor criado com sucesso",
      *          @OA\JsonContent(
-     *              @OA\Property(property="message", type="string", example="Usuário criado com sucesso")
+     *              @OA\Property(property="message", type="string", example="Vendedor criado com sucesso")
      *          )
      *      ),
      *      @OA\Response(
-     *          response=422,
+     *          response=400,
      *          description="Erro de validação",
      *          @OA\JsonContent(
      *              @OA\Property(property="message", type="string", example="Erro de validação")
@@ -143,7 +143,7 @@ class UserController extends Controller
 
     /**
      * @OA\Delete(
-     *      path="/api/users/delete/{id}",
+     *      path="/api/user/delete/{id}",
      *      operationId="deleteUser",
      *      tags={"Users"},
      *      summary="Exclui um vendedor",
