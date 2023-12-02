@@ -163,6 +163,6 @@ Referente ao relatório:
 
 **Documentação no Swagger**
 
-![Doc Swagger](https://media.discordapp.net/attachments/899352560379494450/1180288238640975962/swagger.jpg?ex=657ce014&is=656a6b14&hm=4ad979b6a4bb65403e32834a6aa81c055ba843b083bdc8678acebb99f23ca78b&=&format=webp&width=1011&height=566)
+![Doc Swagger](https://media.discordapp.net/attachments/899352560379494450/1180359994974146721/swagger_2.jpg?ex=657d22e8&is=656aade8&hm=d8bc117c183f4e26e152b78135dd4da44cda1213ffc72da48537c3c2af1065da&=&format=webp&width=1020&height=566)
 
 
