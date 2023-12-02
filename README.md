@@ -127,6 +127,10 @@ Em seguida, basta rodar o comando:
 php artisan schedule:run
 ```
 
+**O email chegará desta maneira**
+![Doc Swagger](https://media.discordapp.net/attachments/899352560379494450/1180361394625982545/image.png?ex=657d2436&is=656aaf36&hm=8891b947f329d8ee5df175f283834ee1b830a091c5805a3bf7a8bbc614388a4c&=&format=webp&quality=lossless&width=1145&height=566)
+
+
 ## Rotas:
 
 Referente ao vendedor:
