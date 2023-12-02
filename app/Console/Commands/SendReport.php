@@ -51,7 +51,7 @@ class SendReport extends Command
 
         $today = $today->format('d/m/Y');
 
-        $to = 'matheus2001513@gmail.com';
+        $to = 'seu-email@mailtrap.com';
         $subject = 'Relatório de vendas do dia ' . $today;
         $data = array(
             'messages' => $sales,
